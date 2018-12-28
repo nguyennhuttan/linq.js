@@ -20,9 +20,11 @@
 
         return this.length ? typeof this.find(predicate) !== 'undefined' : false;
     };
-    Array.prototype.contains = function (value) {
+    Array.prototype.contains = function (...args) {
         if (args.length !== 1) throw new Error(`No overload for method 'contains' takes ${args.length} arguments`);
 
+        let value = args[0];
+        
         return this.length ? typeof this.find(item => Object.is(item, value)) !== 'undefined' : false;
     };
     Array.prototype.count = function (...args) {
